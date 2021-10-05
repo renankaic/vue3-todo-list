@@ -2,14 +2,17 @@ const todoList = {
     data() {
         return {
             todos: [],
-            newTodo: {}
+            newTodo: { done: false }
         }
     },
     methods: {
-        newTask() {
-            this.newTodo.done = false
-            this.todos.push(this.newTodo)
-            this.newTodo = {}
+        addTodo() {            
+            if (this.newTodo.text) {
+                this.todos.push(this.newTodo)
+                this.newTodo = { done: false }
+            } else {
+                alert("Texto da tarefa é obrigatório")
+            }
         }
     }
 }
