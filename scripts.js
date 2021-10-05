@@ -6,10 +6,11 @@ const todoList = {
         }
     },
     methods: {
-        addTodo() {            
+        addTodo() {
             if (this.newTodo.text) {
                 this.todos.push(this.newTodo)
                 this.newTodo = { done: false }
+                localStorage.setItem("todos", JSON.stringify(this.todos))
             } else {
                 alert("Texto da tarefa é obrigatório")
             }
